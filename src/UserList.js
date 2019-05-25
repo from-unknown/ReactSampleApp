@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 
 class UserList extends Component {
     constructor(prop) {
@@ -8,24 +9,12 @@ class UserList extends Component {
         };
     }
 
-    getUsersData(callback) {
-        const xhttp = new XMLHttpRequest();
-        xhttp.onloadend = function() {
-            if (this.status === 200) {
-                const users = JSON.parse(this.responseText);
-                callback(users);
-            }
-        };
-        xhttp.open("GET", "http://localhost:8080/users", true);
-        xhttp.send();
-    }
-
     componentDidMount() {
-        this.getUsersData((users)=> {
+        axios.get("http://localhost:8080/users").then(response => {
             this.setState({
-                users
+                users: response.data
             });
-        })
+        });
     }
 
     render() {
