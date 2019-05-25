@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
-import UserList from "./UserList";
+import TopComponent from "./TopComponent";
 
-ReactDOM.render(<UserList />, document.getElementById("root"));
+ReactDOM.render(<TopComponent />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
